@@ -1,0 +1,15 @@
+{
+  "name": "nodejs-microservices",
+  "version": "1.0.0",
+  "private": true,
+  "main": "index.js",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {},
+  "devDependencies": {
+    "tsx": "^4.23.11",
+    "typescript": "^7.0.2"
+  }
+}

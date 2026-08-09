@@ -8,6 +8,7 @@ import {
   logger,
   successResponse,
 } from "shared";
+import authRoutes from "./routes/auth.routes";
 
 config({ path: resolve(process.cwd(), ".env") });
 config({ path: resolve(process.cwd(), "../../.env") });
@@ -21,6 +22,8 @@ app.use(express.json());
 app.get("/health", (_req, res) => {
   successResponse(res, { service: "Auth Service is healthy" }, 200);
 });
+
+app.use("/auth", authRoutes);
 
 app.use((_req, _res, next) => {
   next(new AppError("Route not found", 404));

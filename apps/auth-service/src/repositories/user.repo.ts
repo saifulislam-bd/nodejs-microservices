@@ -29,3 +29,15 @@ export async function createUser(input: {
   );
   return result.rows[0];
 }
+
+export async function findById(id: string): Promise<User | null> {
+  const result = await getPool().query<User>(
+    `
+    SELECT id, name, email, password_hash, role, created_at
+    FROM users
+    WHERE id = $1
+    `,
+    [id],
+  );
+  return result.rows[0] ?? null;
+}

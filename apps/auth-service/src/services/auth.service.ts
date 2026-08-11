@@ -1,9 +1,8 @@
-import { AppError } from "shared";
+import { AppError, signToken } from "shared";
 import { createUser, findByEmail, findById } from "../repositories/user.repo";
 import { RegisterInput, LoginInput } from "../schemas/auth.schemas";
 import { convertToPublicUser } from "../utils/auth.utils";
 import bcrypt from "bcryptjs";
-import { signToken } from "../utils/jwt";
 
 export async function register(input: RegisterInput) {
   const existingUser = await findByEmail(input.email);

@@ -10,6 +10,7 @@
   "scripts": {
     "dev:auth": "npm run dev -w auth-service",
     "dev:gateway": "npm run dev -w api-gateway",
+    "dev:task": "npm run dev -w task-service",
     "db:migrate": "tsx scripts/db-migrate.ts"
   },
   "devDependencies": {

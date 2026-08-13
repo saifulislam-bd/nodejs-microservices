@@ -73,7 +73,7 @@ export function gatewayAuth(req: Request, _res: Response, next: NextFunction) {
     if (error instanceof AppError) {
       return next(error);
     }
+    //in-case if jwt verification is failed
+    return next(new AppError("Invalid or expired token", 401));
   }
-  //in-case if jwt verification is failed
-  return next(new AppError("Invalid or expired token", 401));
 }
